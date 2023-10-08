@@ -5,7 +5,7 @@ import os
 import sys
 import asyncio
 from random import choice
-OWNER_ID = 1669178360
+OWNER_ID = 1696771874
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from cache.data import *
@@ -91,7 +91,7 @@ async def dmspam(spam: Client, e: Message):
           else:
               counts = int(text[0])
               msg = str(Zaid[0])
-              await e.reply_text("☢️ Dm Spam Strated ☢️")
+              await e.reply_text("☢️ Dm Spam Started ☢️")
               for _ in range(counts):
                     await spam.send_message(id, msg)
                     await asyncio.sleep(0.10)
