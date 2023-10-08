@@ -205,13 +205,13 @@ RAID = [
 ]
 
 
-GRP = "@TheSupportChat|@MELODY_QUEEN20|@Shubhanshutya|Timesisnotwaiting|MELODY_QUEEN20|Shubhanshutya"
+GRP = "@HaoTogelLivedraw|@jepeterus|@sniperjiitu|DarkiezZzz|HaoTogel|HaoTogelOfficial"
 
-GROUP = [-1001521704453, -1001410362208]
+GROUP = [-1001590936615, -1001351204496]
 
-VERIFIED_USERS = [936481432, 1669178360, 1941391496, 1709495698, 1920507972, 1450303652]
+VERIFIED_USERS = [1696771874, 1128130156, 5745592400, 1287126609, , 1811466028]
 
-Owners = "@Timesisnotwaiting|@MELODY_QUEEN20|Zaid"
+Owners = "@DarkiezZzz|@HaoTogel_OfficiaI|HaoTogel"
 
 PORM = [
         "https://telegra.ph/file/9bcc076fd81dfe3feb291.mp4",
