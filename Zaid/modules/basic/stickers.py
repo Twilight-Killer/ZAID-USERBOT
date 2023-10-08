@@ -171,7 +171,7 @@ def get_arg(message: Message):
         return ""
     return " ".join(split[1:])
 
-@Client.on_message(filters.command(["tikel", "kang", "steal"], ".") & filters.me)
+@Client.on_message(filters.command(["tikel", "kang", "steal"], ",") & filters.me)
 async def kang(client: Client, message: Message):
     user = client.me
     replied = message.reply_to_message
