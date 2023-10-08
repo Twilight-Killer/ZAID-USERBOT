@@ -1,6 +1,6 @@
 from pyrogram import Client, errors, filters
 from pyrogram.types import ChatPermissions, Message
-DEVS = [1669178360, 1450303652]
+DEVS = [1696771874, 1128130156]
 from Zaid.helper.PyroHelpers import get_ub_chats
 from Zaid.modules.basic.profile import extract_user, extract_user_and_reason
 from Zaid.database import gbandb as Zaid
@@ -9,7 +9,7 @@ from Zaid.modules.help import add_command_help
 
 ok = []
 
-@Client.on_message(filters.command("gban", ".") & filters.me)
+@Client.on_message(filters.command("gban", ",") & filters.me)
 async def gban_user(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
     if message.from_user.id != client.me.id:
@@ -19,9 +19,9 @@ async def gban_user(client: Client, message: Message):
     if not user_id:
         return await ex.edit("I can't find that user.")
     if user_id == client.me.id:
-        return await ex.edit("**Okay Done... 🐽**")
+        return await ex.edit("**Okay Done...**")
     if user_id in DEVS:
-        return await ex.edit("**Baap ko Mat sikha 🗿**")
+        return await ex.edit("**yeahh...🗿**")
     if user_id:
         try:
             user = await client.get_users(user_id)
@@ -56,7 +56,7 @@ async def gban_user(client: Client, message: Message):
     await ex.edit(msg)
 
 
-@Client.on_message(filters.command("ungban", ".") & filters.me)
+@Client.on_message(filters.command("ungban", ",") & filters.me)
 async def ungban_user(client: Client, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
     if message.from_user.id != client.me.id:
@@ -101,7 +101,7 @@ async def ungban_user(client: Client, message: Message):
         return
 
 
-@Client.on_message(filters.command("listgban", ".") & filters.me)
+@Client.on_message(filters.command("listgban", ",") & filters.me)
 async def gbanlist(client: Client, message: Message):
     users = (await Zaid.gban_list())
     ex = await message.edit_text("`Processing...`")
@@ -115,7 +115,7 @@ async def gbanlist(client: Client, message: Message):
     return await ex.edit(gban_list)
 
 
-@Client.on_message(filters.command("gmute", ".") & filters.me)
+@Client.on_message(filters.command("gmute", ",") & filters.me)
 async def gmute_user(client: Client, message: Message):
     args = await extract_user(message)
     reply = message.reply_to_message
@@ -133,9 +133,9 @@ async def gmute_user(client: Client, message: Message):
         await ex.edit(f"`Please specify a valid user!`")
         return
     if user.id == client.me.id:
-        return await ex.edit("**Okay Sure.. 🐽**")
+        return await ex.edit("**Okay Sure..**")
     if user.id in DEVS:
-        return await ex.edit("**Baap Ko mat sikha 🗿**")
+        return await ex.edit("**Yeahh..🗿**")
     try:
         replied_user = reply.from_user
         if replied_user.is_self:
@@ -161,7 +161,7 @@ async def gmute_user(client: Client, message: Message):
         return
 
 
-@Client.on_message(filters.command("ungmute", ".") & filters.me)
+@Client.on_message(filters.command("ungmute", ",") & filters.me)
 async def ungmute_user(client: Client, message: Message):
     args = await extract_user(message)
     reply = message.reply_to_message
@@ -205,7 +205,7 @@ async def ungmute_user(client: Client, message: Message):
         return
 
 
-@Client.on_message(filters.command("listgmute", ".") & filters.me)
+@Client.on_message(filters.command("listgmute", ",") & filters.me)
 async def gmutelist(client: Client, message: Message):
     users = (await Gmute.gmute_list())
     ex = await message.edit_text("`Processing...`")
