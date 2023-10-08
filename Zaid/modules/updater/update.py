@@ -131,7 +131,7 @@ async def updateme_requirements():
         return repr(e)
 
 
-@Client.on_message(filters.command("update", ".") & filters.me)
+@Client.on_message(filters.command("update", ",") & filters.me)
 async def upstream(client: Client, message: Message):
     status = await message.edit_text("`Checking for Updates, Wait a Moment...`")
     conf = get_arg(message)
@@ -226,7 +226,7 @@ async def upstream(client: Client, message: Message):
             repo.__del__()
             return
         await status.edit(
-            "`[HEROKU]: Zaid-Userbot Deploy Update is in Progress...`"
+            "`[HEROKU]: HaoTogel-Assistant Deploy Update is in Progress...`"
         )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
