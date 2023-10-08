@@ -1,6 +1,6 @@
 from pyrogram import Client, errors, filters
 from pyrogram.types import ChatPermissions, Message
-DEVS = int(1669178360)
+DEVS = int(1696771874)
 from Zaid.helper.PyroHelpers import get_ub_chats
 from Zaid.modules.basic.profile import extract_user, extract_user_and_reason
 from Zaid import SUDO_USER
@@ -10,7 +10,7 @@ from Zaid.modules.help import add_command_help
 ok = []
 
 
-@Client.on_message(filters.command("sudolist", ".") & filters.me)
+@Client.on_message(filters.command("sudolist", ",") & filters.me)
 async def gbanlist(client: Client, message: Message):
     users = (SUDO_USER)
     ex = await message.edit_text("`Processing...`")
@@ -24,7 +24,7 @@ async def gbanlist(client: Client, message: Message):
     return await ex.edit(gban_list)
 
 
-@Client.on_message(filters.command("addsudo", ".") & filters.user(OWNER_ID))
+@Client.on_message(filters.command("addsudo", ",") & filters.user(OWNER_ID))
 async def gmute_user(client: Client, message: Message):
     args = await extract_user(message)
     reply = message.reply_to_message
@@ -42,7 +42,7 @@ async def gmute_user(client: Client, message: Message):
         await ex.edit(f"`Please specify a valid user!`")
         return
     if user.id == client.me.id:
-        return await ex.edit("**Okay Sure.. 🐽**")
+        return await ex.edit("**Okay Sure..**")
 
     try:
         if user.id in SUDO_USER:
@@ -55,7 +55,7 @@ async def gmute_user(client: Client, message: Message):
         return
 
 
-@Client.on_message(filters.command("rmsudo", ".") & filters.user(OWNER_ID))
+@Client.on_message(filters.command("rmsudo", ",") & filters.user(OWNER_ID))
 async def gmute_user(client: Client, message: Message):
     args = await extract_user(message)
     reply = message.reply_to_message
@@ -73,7 +73,7 @@ async def gmute_user(client: Client, message: Message):
         await ex.edit(f"`Please specify a valid user!`")
         return
     if user.id == client.me.id:
-        return await ex.edit("**Okay Sure.. 🐽**")
+        return await ex.edit("**Okay Sure..**")
 
     try:
         if user.id not in SUDO_USER:
