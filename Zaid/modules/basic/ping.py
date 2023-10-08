@@ -63,7 +63,7 @@ async def speed_test(client: Client, message: Message):
 
 
 @Client.on_message(
-    filters.command(["ping"], ".") & (filters.me | filters.user(SUDO_USER))
+    filters.command(["ping"], ",") & (filters.me | filters.user(SUDO_USER))
 )
 async def pingme(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
